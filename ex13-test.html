@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      td {
+        width: 40px;
+        height: 40px;
+        text-align: center;
+      }
+      table tr:nth-child(2) td:nth-child(-n + 6) {
+        background: #b3e5fc;
+      }
+      table tr:nth-child(2) td:nth-child(n + 7):nth-child(-n + 10) {
+        background: #c8e6c9;
+      }
+      table tr:nth-child(2) td:nth-child(n + 11):nth-child(-n + 14) {
+        background: #fff9c4;
+      }
+      table tr:nth-child(2) td:nth-child(n + 15):nth-child(-n + 17) {
+        background: #ffe0b2;
+      }
+      table tr:nth-child(2) td:nth-child(n + 18) {
+        background: #ffcdd2;
+      }
+
+      #result {
+        margin-top: 20px;
+        font-size: 1.3rem;
+        color: #1565c0;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      @keyframes colorChange {
+        0% {
+          color: red;
+        }
+        25% {
+          color: orange;
+        }
+        50% {
+          color: yellow;
+        }
+        75% {
+          color: green;
+        }
+        100% {
+          color: blue;
+        }
+      }
+
+      #result.animate {
+        animation: colorChange 2s infinite;
+      }
+    </style>
+  </head>
+  <body>
+    <table border="1">
+      <tr>
+        <td colspan="6">16미만</td>
+        <td colspan="4">16이상~22미만</td>
+        <td colspan="4">22이상~28미만</td>
+        <td colspan="3">28이상~32미만</td>
+        <td colspan="6">32이상</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td id="three_1" colspan="6"></td>
+        <td id="three_2" colspan="4"></td>
+        <td id="three_3" colspan="4"></td>
+        <td id="three_4" colspan="3"></td>
+        <td id="three_5" colspan="6"></td>
+      </tr>
+    </table>
+    <div id="result"></div>
+    <script>
+      const tem = prompt("현재 온도를 입력하세요: ");
+      const txt1 = "보통이에요";
+      const txt2 = "시원하네요";
+      const txt3 = "갑갑하네요";
+      const txt4 = "정상온도에서 이하로 벗어났습니다.";
+      const txt5 = "정상온도를 넘겼습니다.";
+
+      let resultText = "";
+      if (tem < 16) {
+        document.getElementById("three_1").innerText = txt1;
+        resultText = "지금 온도는 " + tem + "도 이며, 상태는 " + txt1;
+      } else if (tem < 22) {
+        document.getElementById("three_2").innerText = txt2;
+        resultText = "지금 온도는 " + tem + "도 이며, 상태는 " + txt2;
+      } else if (tem < 28) {
+        document.getElementById("three_3").innerText = txt3;
+        resultText = "지금 온도는 " + tem + "도 이며, 상태는 " + txt3;
+      } else if (tem < 32) {
+        document.getElementById("three_4").innerText = txt4;
+        resultText = "지금 온도는 " + tem + "도 이며, 상태는 " + txt4;
+      } else if (tem >= 32) {
+        document.getElementById("three_5").innerText = txt5;
+        resultText = "지금 온도는 " + tem + "도 이며, 상태는 " + txt5;
+      }
+      document.getElementById("result").innerText = resultText;
+      document.getElementById("result").classList.add("animate");
+    </script>
+  </body>
+</html>
