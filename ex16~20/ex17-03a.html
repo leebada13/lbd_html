@@ -8,20 +8,15 @@
   <body>
     <!-- h1#count{글자수:0} -->
     <h1 id="count">글자수 : 0</h1>
-    <textarea
-      name=""
-      cols="20"
-      rows="10"
-      maxlength="200"
-      onkeyup="updateText()"
-    ></textarea>
+    <textarea name="" cols="20" rows="10" maxlength="200"></textarea>
 
     <script>
-      function updateText() {
-        const textArea = document.querySelector("textarea");
+      const textArea = document.querySelector("textarea");
+      const updateText = () => {
         const count = document.querySelector("#count");
         count.textContent = `글자수 : ${textArea.value.length}`;
-      }
+      };
+      textArea.addEventListener("keyup", updateText);
     </script>
   </body>
 </html>

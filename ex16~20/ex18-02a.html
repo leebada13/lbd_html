@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function lol(heroName, level = 1, callback) {
+        document.write("===========================<br>");
+        document.write(`${heroName}님이 ${level}레벨이 되셨습니다.<br>`);
+        document.write("===========================<br>");
+        if (level >= 6) {
+          document.write(`${heroName}님이 궁극기를 쏩니다.<br>`);
+          // callback 기술 쓰기
+        } else {
+          document.write(`${heroName}님이 평타를 때립니다. 딱!.<br>`);
+        }
+      }
+
+      function fire(ff) {
+        for (let i = 1; i < ff + 1; i++) {
+          document.write(`${ff}랩 이어서 ${i}번째 매테오를 던집니다.<br>`);
+        }
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
